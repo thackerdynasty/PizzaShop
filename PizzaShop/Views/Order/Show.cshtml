@@ -1,0 +1,30 @@
+@model Order;
+@{
+    ViewBag.Title = "Order";
+}
+<h1>Your Order</h1>
+<h2>Order Status: @Model.Status</h2>
+<h2>Price: $@Model.Price</h2>
+<h2>Pizzas:</h2>
+@foreach(Pizza pizza in Model.Pizzas)
+{
+    <div class="left-padding">
+        <h3>Price: $@pizza.Price</h3>
+        <h3>Size: @pizza.Size</h3>
+        <h3>Crust: @pizza.Crust</h3>
+        <h3>Toppings: 
+            <br /> 
+            @foreach(var toppingPizza in pizza.Toppings) 
+            {
+                <div class="left-padding">
+                    @toppingPizza.Topping.Name
+                </div>
+            }
+        </h3>
+        <a asp-controller="Pizza" asp-action="Edit" asp-route-id="@pizza.Id">Edit Pizza</a>
+        <a asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id">Delete Pizza</a>
+    </div>
+}
+<h4>
+    <a asp-controller="Pizza" asp-action="Create" asp-route-id="@Model.Id">Add a Pizza</a>
+</h4>

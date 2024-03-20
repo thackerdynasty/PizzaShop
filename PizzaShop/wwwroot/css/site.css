@@ -28,3 +28,7 @@ body {
 .right-align {
   margin-left: auto;
 }
+
+.left-padding {
+  padding-left: 20px;
+}

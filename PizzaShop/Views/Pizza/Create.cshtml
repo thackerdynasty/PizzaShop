@@ -1,0 +1,26 @@
+@model Pizza
+@{
+    ViewBag.Title = "Add a Pizza";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form method="post">
+    <label>Size</label>
+    <input type="range" name="Size" min="8" max="16" value="12" step="4" />
+    <br />
+    <label>Crust</label>
+    <select name="Crust">
+        <option value=0>Thin</option>
+        <option value=1>Standard</option>
+        <option value=2>Stuffed</option>
+    </select>
+    <br />
+    <label>Toppings</label>
+    <br />
+    <input type="checkbox" name="Toppings" value="1" />Pepperoni
+    <br />
+    <input type="checkbox" name="Toppings" value="2" />Extra Cheese
+    <br />
+    <input type="submit" value="Add Pizza" />
+</form>

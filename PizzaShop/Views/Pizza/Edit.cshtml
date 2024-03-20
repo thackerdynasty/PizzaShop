@@ -1,0 +1,38 @@
+@{
+    ViewBag.Title = "Edit Pizza";
+}
+@model Pizza
+<form method="post">
+    <label>Size</label>
+    <input type="range" name="Size" min="8" max="16" value="@Model.Size" step="4" />
+    <br />
+    <label>Crust</label>
+    <select name="Crust">
+        @switch (Model.Crust)
+        {
+            case 0:
+                <option value=0 selected="selected">Thin</option>
+                <option value=1>Standard</option>
+                <option value=2>Stuffed</option>
+                break;
+            case 1:
+                <option value=0>Thin</option>
+                <option value=1 selected="selected">Standard</option>
+                <option value=2>Stuffed</option>
+                break;
+            case 2:
+                <option value=0>Thin</option>
+                <option value=1>Standard</option>
+                <option value=2 selected="selected">Stuffed</option>
+                break;
+        }
+    </select>
+    <br />
+    <label>Toppings</label>
+    <br />
+    <input type="checkbox" name="Toppings" value="1" />Pepperoni
+    <br />
+    <input type="checkbox" name="Toppings" value="2" />Extra Cheese
+    <br />
+    <input type="submit" value="Add Pizza" />
+</form>

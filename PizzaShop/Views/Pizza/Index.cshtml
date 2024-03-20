@@ -1,0 +1,23 @@
+@model List<Pizza>
+@{
+    ViewBag.Title = "Pizzas";
+}
+
+<h1>Pizzas</h1>
+@foreach (var pizza in Model)
+{
+    <div>
+        <h2>Price: $@pizza.Price</h2>
+        <h2>Size: @pizza.Size"</h2>
+        <h2>Crust: @pizza.Crust</h2>
+        <h2>Toppings: 
+            <br /> 
+            @foreach(var toppingPizza in pizza.Toppings) 
+            {
+                @toppingPizza.Topping.Name
+                <br />
+            }
+        </h2>
+    </div>
+}
+<a asp-action="Create">Create</a>
